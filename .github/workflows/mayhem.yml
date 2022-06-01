@@ -39,6 +39,21 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      - name: Rust Build Cache
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          override: true
+
+      - uses: Swatinem/rust-cache@v1
+
+      - uses: actions-rs/cargo@v1
+        run: |
+          cargo install cargo-fuzz
+          cd polars/fuzz
+          cargo fuzz build
+
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
