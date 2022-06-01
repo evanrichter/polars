@@ -46,6 +46,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          driver-opts: env.BUILDKIT_STEP_LOG_MAX_SIZE=10485760
 
       - name: Start analysis for PARSE_PARQUET
         uses: ForAllSecure/mcode-action@v1
