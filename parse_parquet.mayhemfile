@@ -1,5 +1,5 @@
 project: polars
-target: parse_parquet
+target: parse-parquet
 
 cmds:
   - cmd: /parse_parquet
