@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["arrow","Welcome to arrow2’s documentation. Thanks for checking it out!"],["chrono","Chrono: Date and Time for Rust"],["num","A collection of numeric types and traits for Rust."],["once_cell","Overview"],["rayon","Data-parallelism library that makes it easy to convert sequential computations into parallel"]]});
