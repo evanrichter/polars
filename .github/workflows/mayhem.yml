@@ -50,6 +50,17 @@ jobs:
 
       - uses: actions-rs/cargo@v1
       - run: |
+          sudo swapon -s
+          free -m
+          df -h
+          sudo fallocate -l 4G /swapfile
+          ls -lh /swapfile
+          sudo chmod 600 /swapfile
+          ls -lh /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          sudo swapon -s
+          free -m
           cargo install cargo-fuzz
           cd polars/fuzz
           cargo fuzz build
